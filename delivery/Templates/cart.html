@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Cart | MealMate{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-2">Your Cart</h2>
+
+    {% if itemList %}
+    <div class="table-container mb-2">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in itemList %}
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="{{ item.picture }}" class="table-img">
+                            <span>{{ item.name }}</span>
+                        </div>
+                    </td>
+                    <td>₹{{ item.price }}</td>
+                    <td>
+                        <a href="{% url 'remove_from_cart' item.id username %}" class="btn btn-outline"
+                            style="padding: 5px 10px; font-size: 0.8rem; border-color: var(--primary-color); color: var(--primary-color); width: auto; margin-top: 0;">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr style="background-color: #f9f9f9; font-weight: bold;">
+                    <td style="text-align: right;">Total:</td>
+                    <td>₹{{ total_price }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="text-align: right;">
+        <a href="{% url 'checkout' username %}" class="btn btn-primary"
+            style="padding: 15px 40px; font-size: 1.2rem;">Checkout</a>
+    </div>
+    {% else %}
+    <div class="text-center" style="padding: 4rem;">
+        <h3 class="text-muted">Your cart is empty.</h3>
+        <a href="{% url 'signin' %}" class="btn btn-primary mt-1">Browse Restaurants</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

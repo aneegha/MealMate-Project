@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Menu | MealMate{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card mb-2">
+        <h2>Update Menu: <span style="color: var(--primary-color);">{{ restaurant.name }}</span></h2>
+        <a href="{% url 'open_show_restaurant' %}" class="btn btn-outline mb-1">&larr; Back to Restaurants</a>
+
+        <form action="{% url 'update_menu' restaurant.id %}" method="post">
+            {% csrf_token %}
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label for="name">Item Name</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" step="0.01" name="price" id="price" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" required>
+            </div>
+
+            <div class="form-group">
+                <label for="picture">Image URL</label>
+                <input type="text" name="picture" id="picture"
+                    value="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label style="display: inline-flex; align-items: center; cursor: pointer;">
+                    <input type="checkbox" name="vegeterian" style="width: auto; margin-right: 10px;">
+                    Is Vegetarian?
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+    </div>
+
+    <h3 class="mb-1">Current Menu Items</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Veg?</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in itemList %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td><img src="{{ item.picture }}" class="table-img"></td>
+                    <td>₹{{ item.price }}</td>
+                    <td>
+                        {% if item.vegeterian %}
+                        <span style="color: green; font-weight: bold;">VEG</span>
+                        {% else %}
+                        <span style="color: red; font-weight: bold;">NON-VEG</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ item.description }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">No items in menu yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

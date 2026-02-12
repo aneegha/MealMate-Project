@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Error | MealMate{% endblock %}
+
+{% block content %}
+<div class="container text-center" style="padding: 4rem 0;">
+    <div
+        style="background-color: #ffebee; color: #c62828; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
+        <span style="font-size: 40px;">!</span>
+    </div>
+
+    <h1 class="mb-1">Something Went Wrong</h1>
+    <p class="text-muted mb-2">We couldn't complete your request. Please check your details and try again.</p>
+
+    <a href="{% url 'open_signin' %}" class="btn btn-secondary">Go Back</a>
+</div>
+{% endblock %}

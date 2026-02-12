@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Restaurants | MealMate{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-2">Nearby Restaurants</h2>
+
+    <div class="grid-restaurants">
+        {% for r in restaurantList %}
+        <div class="card restaurant-card" style="padding: 0;">
+            <img src="{{ r.picture }}" alt="{{ r.name }}"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=No+Image';">
+            <div style="padding: 1.5rem;">
+                <h3>{{ r.name }}</h3>
+                <p class="mb-1 text-muted">
+                    {{ r.cuisine }} •
+                    <span style="color: var(--secondary-color); font-size: 1.2rem;">
+                        {% load custom_filters %}
+                        {% for star in r.rating|to_stars %}
+                        {% if star == 'full' %}★{% elif star == 'half' %}½{% else %}☆{% endif %}
+                        {% endfor %}
+                    </span>
+                    <span style="font-size: 0.8rem; color: #999;">({{ r.rating }})</span>
+                </p>
+                <a href="{% url 'view_menu' r.id username %}" class="btn btn-primary" style="width: 100%;">View Menu</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

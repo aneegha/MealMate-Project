@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Restaurants | MealMate{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>Manage Restaurants</h2>
+        <a href="{% url 'open_add_restaurant' %}" class="btn btn-success"
+            style="background-color: var(--primary-color); color: white;">+ Add New</a>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Restaurant</th>
+                    <th>Image</th>
+                    <th>Cuisine</th>
+                    <th>Rating</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in restaurantList %}
+                <tr>
+                    <td><strong>{{ r.name }}</strong></td>
+                    <td>
+                        <img src="{{ r.picture }}" alt="{{ r.name }}" class="table-img">
+                    </td>
+                    <td>{{ r.cuisine }}</td>
+                    <td>★ {{ r.rating }}</td>
+                    <td>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="{% url 'open_update_restaurant' r.id %}" class="btn btn-outline"
+                                style="font-size: 0.8rem; padding: 5px 10px;">Update Info</a>
+                            <a href="{% url 'open_update_menu' r.id %}" class="btn btn-outline"
+                                style="font-size: 0.8rem; padding: 5px 10px;">Update Menu</a>
+                            <a href="{% url 'delete_restaurant' r.id %}" class="btn btn-danger"
+                                style="font-size: 0.8rem; padding: 5px 10px;"
+                                onclick="return confirm('Are you sure?')">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

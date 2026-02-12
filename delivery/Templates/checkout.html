@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout | MealMate{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-2">Checkout</h2>
+
+    {% if error %}
+    <div class="card text-center">
+        <h3 style="color: red;">{{ error }}</h3>
+        <a href="{% url 'signin' %}" class="btn btn-secondary mt-1">Go Back</a>
+    </div>
+    {% else %}
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+        <div class="card">
+            <h3 class="mb-1">Shipping Address</h3>
+            <p><strong>Username:</strong> {{ username }}</p>
+            <!-- In a real app, we'd pull address from user model or let them edit it -->
+            <p class="text-muted">Deliver to default address.</p>
+        </div>
+
+        <div class="card">
+            <h3 class="mb-1">Order Summary</h3>
+            {% for item in cart_items %}
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <span>{{ item.name }}</span>
+                <span>₹{{ item.price }}</span>
+            </div>
+            {% endfor %}
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div
+                style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; margin-bottom: 20px;">
+                <span>Total</span>
+                <span>₹{{ total_price }}</span>
+            </div>
+
+            <a href="{% url 'orders' username %}" class="btn btn-primary" style="width: 100%;">Place Order</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

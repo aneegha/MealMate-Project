@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign In | MealMate{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="card auth-card">
+        <h2 class="text-center mb-2">Sign In</h2>
+
+        <form action="{% url 'signin' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+        </form>
+
+        <p class="text-center mt-1">
+            New to MealMate? <a href="{% url 'open_signup' %}">Create an account</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
