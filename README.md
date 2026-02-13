@@ -1,39 +1,44 @@
-🍽️ MealMate – Smart Meal Management System
+🍽️ **MealMate – Full Stack Food Ordering Web Application**
+*MealMate is a full-stack web application built using Django that allows users to browse restaurants, view menus, and place orders. The system also provides an admin interface to manage restaurants, menu items, and customer data.*
 
-MealMate is a web-based meal management system designed to simplify food ordering and meal tracking for users and administrators. It allows users to register, sign in, browse meals, place orders, and manage their profiles, while admins can manage meals, categories, and users efficiently.
-The system focuses on structured authentication, role-based access (Admin/User), and organized meal handling to provide a smooth and user-friendly experience.
+The project demonstrates complete backend logic, database integration, authentication flow, and dynamic frontend rendering.
 
-🚀 Features
+🚀 **Project Overview**
+MealMate simulates a basic online food delivery platform where:
+-Users can register and log in
+-Restaurants can be viewed dynamically
+-Menus are displayed per restaurant
+-Orders can be placed and stored in the database
+-Admin can manage all records through the Django admin panel
+-This project follows Django’s MVT (Model–View–Template) architecture and implements full CRUD operations.
 
-👤 User Functionalities
-User Registration & Login
+🛠 **Tech Stack**
+Backend: Python, Django
+Frontend: HTML, CSS (UI designed with AI assistance)
+Database: SQLite (Django default database)
+Architecture: MVT (Model–View–Template)
+Admin Panel: Django Built-in Admin
 
-Secure Authentication
+✨ **Features**
+👤 User Features
+-User Registration (Signup)
+-User Login Authentication
+-View All Restaurants
+-View Restaurant-specific Menus
+-Place Orders
+-Data stored in database using Django ORM
 
-Browse Available Meals
+🏢 **Admin Features**
+-Add / Update / Delete Restaurants
+-Add / Update / Delete Menu Items
+-View Registered Users
+-Manage Orders
+-Secure access via Django Admin Panel
 
-View Meal Details
-
-Place Orders
-
-View Order History
-
-Update Profile
-
-🛠️ Admin Functionalities
-
-Admin Login
-
-Add / Update / Delete Meals
-
-Manage Meal Categories
-
-View Registered Users
-
-Manage Orders
-
-🏗️ Tech Stack
-
-Frontend: HTML, CSS, JavaScript
-
-Backend: Python
+🔁 **Application Flow**
+-User signs up → Data stored in SQLite database
+-User logs in → Credentials validated
+-User views list of restaurants
+-User selects restaurant → Menu displayed dynamically
+-User places order → Order saved in database
+-Admin manages restaurants, menus, and orders
