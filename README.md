@@ -9,21 +9,15 @@ The project demonstrates complete backend logic, database integration, authentic
 
 MealMate simulates a basic online food delivery platform where:
 
-
 -Users can register and log in
-
 
 -Restaurants can be viewed dynamically
 
-
 -Menus are displayed per restaurant
-
 
 -Orders can be placed and stored in the database
 
-
 -Admin can manage all records through the Django admin panel
-
 
 -This project follows Django’s MVT (Model–View–Template) architecture and implements full CRUD operations.
 
@@ -34,15 +28,11 @@ MealMate simulates a basic online food delivery platform where:
 
 Backend: Python, Django
 
-
 Frontend: HTML, CSS (UI designed with AI assistance)
-
 
 Database: SQLite (Django default database)
 
-
 Architecture: MVT (Model–View–Template)
-
 
 Admin Panel: Django Built-in Admin
 
@@ -56,18 +46,13 @@ Admin Panel: Django Built-in Admin
 
 -User Registration (Signup)
 
-
 -User Login Authentication
-
 
 -View All Restaurants
 
-
 -View Restaurant-specific Menus
 
-
 -Place Orders
-
 
 -Data stored in database using Django ORM
 
@@ -78,15 +63,11 @@ Admin Panel: Django Built-in Admin
 
 -Add / Update / Delete Restaurants
 
-
 -Add / Update / Delete Menu Items
-
 
 -View Registered Users
 
-
 -Manage Orders
-
 
 -Secure access via Django Admin Panel
 
@@ -97,17 +78,12 @@ Admin Panel: Django Built-in Admin
 
 -User signs up → Data stored in SQLite database
 
-
 -User logs in → Credentials validated
-
 
 -User views list of restaurants
 
-
 -User selects restaurant → Menu displayed dynamically
 
-
 -User places order → Order saved in database
-
 
 -Admin manages restaurants, menus, and orders
