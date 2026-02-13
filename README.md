@@ -1,9 +1,12 @@
 🍽️ **MealMate – Full Stack Food Ordering Web Application**
+
+
 *MealMate is a full-stack web application built using Django that allows users to browse restaurants, view menus, and place orders. The system also provides an admin interface to manage restaurants, menu items, and customer data.*
 
 The project demonstrates complete backend logic, database integration, authentication flow, and dynamic frontend rendering.
 
 🚀 **Project Overview**
+
 MealMate simulates a basic online food delivery platform where:
 -Users can register and log in
 -Restaurants can be viewed dynamically
@@ -13,6 +16,8 @@ MealMate simulates a basic online food delivery platform where:
 -This project follows Django’s MVT (Model–View–Template) architecture and implements full CRUD operations.
 
 🛠 **Tech Stack**
+
+
 Backend: Python, Django
 Frontend: HTML, CSS (UI designed with AI assistance)
 Database: SQLite (Django default database)
@@ -20,6 +25,8 @@ Architecture: MVT (Model–View–Template)
 Admin Panel: Django Built-in Admin
 
 ✨ **Features**
+
+
 👤 User Features
 -User Registration (Signup)
 -User Login Authentication
@@ -29,6 +36,8 @@ Admin Panel: Django Built-in Admin
 -Data stored in database using Django ORM
 
 🏢 **Admin Features**
+
+
 -Add / Update / Delete Restaurants
 -Add / Update / Delete Menu Items
 -View Registered Users
@@ -36,6 +45,8 @@ Admin Panel: Django Built-in Admin
 -Secure access via Django Admin Panel
 
 🔁 **Application Flow**
+
+
 -User signs up → Data stored in SQLite database
 -User logs in → Credentials validated
 -User views list of restaurants
